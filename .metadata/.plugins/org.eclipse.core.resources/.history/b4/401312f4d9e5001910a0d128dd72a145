@@ -1,0 +1,55 @@
+package main.fr.ut2j.m1ice.ootesting;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class MyPointTest {
+
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	@Test
+	void testMyPoint1() {
+		MyPoint point = new MyPoint();
+		assertEquals(0d, point.getX(), 0.0001);
+		assertEquals(0d, point.getY(), 0.0001);
+	}
+	
+	@Test
+	void testMyPoint2() {
+		double x = 2.0;
+		double y = 2.5;
+		MyPoint point = new MyPoint(x, y);
+		assertEquals(x, point.getX(), 0.0001);
+		assertEquals(y, point.getY(), 0.0001);
+	}
+	
+	@Test
+	void testAccessorX() {
+		MyPoint point = new MyPoint();
+		double newX = Math.random();
+		point.setX(newX);
+		assertEquals(newX, point.getX(), 0.0001);
+	}
+
+	@Test
+	void testAccessorY() {
+		MyPoint point = new MyPoint();
+		double newY = Math.random();
+		point.setY(newY);
+		System.out.println(newY);
+		System.out.println(point.getY());
+		assertEquals(newY, point.getY(), 0.0001);
+	}
+	
+	@Test
+	void testAccessorXdoubleNaN() throws Exception {
+		MyPoint point = new MyPoint();
+		double newX = Double.NaN;
+		point.setX(newX);
+		assertEquals(newX, point.getX(), 0.0001);
+	}
+}

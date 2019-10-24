@@ -1,0 +1,98 @@
+package main.fr.ut2j.m1ice.ootesting;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class MyPointTest {
+
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	@Test
+	void testMyPoint1() {
+		MyPoint point = new MyPoint();
+		assertEquals(0d, point.getX(), 0.0001);
+		assertEquals(0d, point.getY(), 0.0001);
+	}
+	
+	@Test
+	void testMyPoint2() {
+		double x = 2.0;
+		double y = 2.5;
+		MyPoint point = new MyPoint(x, y);
+		assertEquals(x, point.getX(), 0.0001);
+		assertEquals(y, point.getY(), 0.0001);
+	}
+	
+	@Test
+	void testAccessorX() {
+		MyPoint point = new MyPoint();
+		double newX = Math.random();
+		point.setX(newX);
+		assertEquals(newX, point.getX(), 0.0001);
+	}
+
+	@Test
+	void testAccessorY() {
+		MyPoint point = new MyPoint();
+		double newY = Math.random();
+		point.setY(newY);
+		assertEquals(newY, point.getY(), 0.0001);
+	}
+	
+	@Test
+	void testAccessorXdoubleNaN() {
+		MyPoint point = new MyPoint();
+		double oldX = point.getX();
+		double newX = Double.NaN;
+		point.setX(newX);
+		boolean isNan = Double.isNaN(point.getX());
+		assertFalse(isNan);
+		assertEquals(oldX, point.getX(), 0.0001);
+	}
+	
+	@Test
+	void testAccessorYdoubleNaN() {
+		MyPoint point = new MyPoint();
+		double oldY = point.getY();
+		double newY = Double.NaN;
+		point.setY(newY);
+		boolean isNan = Double.isNaN(point.getY());
+		assertFalse(isNan);
+		assertEquals(oldY, point.getY(), 0.0001);
+	}
+	
+	@Test
+	void testMyPoint3() {
+		double X = Math.random();
+		double Y = Math.random();
+		MyPoint point = new MyPoint(X, Y);
+		MyPoint newPoint = new MyPoint(point);
+		assertEquals(point.getX(), newPoint.getX(), 0.0001);
+		assertEquals(point.getY(), newPoint.getY(), 0.0001);
+		assertNotSame(newPoint, point);
+	}
+	
+	@Test
+	void testMyPoint3null() {
+		MyPoint point = null;
+		MyPoint newPoint = new MyPoint(point);
+		assertEquals(0d, newPoint.getX(), 0.0001);
+		assertEquals(0d, newPoint.getY(), 0.0001);
+		assertNotSame(newPoint, point);
+	}
+	
+	@Test
+	void testScale() {
+		double X = Math.random();
+		double Y = Math.random();
+		MyPoint point = new MyPoint(X, Y);
+		double scaleValue = Math.random();
+		MyPoint newPoint = point.scale(scaleValue);
+		assertEquals(point.getX() * scaleValue, newPoint.getX(), 0.0001);
+		assertEquals(point.getY() * scaleValue, newPoint.getY(), 0.0001);
+	}
+}

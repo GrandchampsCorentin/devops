@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;JXBusyLabelTest.java&apos; to &apos;Grandchamps_Devops.Maven_Artifact.AppTest.java&apos;&#x0D;&#x0A;- Original project: &apos;Maven_Artifact&apos;&#x0D;&#x0A;- Destination element: &apos;Grandchamps_Devops.Maven_Artifact.AppTest.java&apos;&#x0D;&#x0A;- Original element: &apos;Grandchamps_Devops.Maven_Artifact.JXBusyLabelTest.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/test\/java&lt;Grandchamps_Devops.Maven_Artifact{AppTest.java" element1="/src\/main\/java&lt;Grandchamps_Devops.Maven_Artifact{JXBusyLabelTest.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1571901136199" units="1" version="1.0"/>
+</session>

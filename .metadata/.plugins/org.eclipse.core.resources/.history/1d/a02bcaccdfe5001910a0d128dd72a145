@@ -1,0 +1,68 @@
+package main.fr.ut2j.m1ice.ootesting;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class MyPointTest {
+
+	@BeforeEach
+	void setUp() throws Exception {
+		MyPoint point = new MyPoint();
+	}
+
+	@Test
+	void testMyPoint1() {
+		assertEquals(0d, point.getX(), 0.0001);
+		assertEquals(0d, point.getY(), 0.0001);
+	}
+	
+	@Test
+	void testMyPoint2() {
+		double x = 2.0;
+		double y = 2.5;
+		MyPoint point2 = new MyPoint(x, y);
+		assertEquals(x, point2.getX(), 0.0001);
+		assertEquals(y, point2.getY(), 0.0001);
+	}
+	
+	@Test
+	void testAccessorX() {
+		double newX = Math.random();
+		point.setX(newX);
+		assertEquals(newX, point.getX(), 0.0001);
+	}
+
+	@Test
+	void testAccessorY() {
+		double newY = Math.random();
+		point.setY(newY);
+		assertEquals(newY, point.getY(), 0.0001);
+	}
+	
+	@Test
+	void testAccessorXdoubleNaN() {
+		double oldX = point.getX();
+		double newX = Double.NaN;
+		point.setX(newX);
+		boolean isNan = Double.isNaN(point.getX());
+		assertFalse(isNan);
+		assertEquals(oldX, point.getX(), 0.0001);
+	}
+	
+	@Test
+	void testAccessorYdoubleNaN() {
+		double oldY = point.getY();
+		double newY = Double.NaN;
+		point.setY(newY);
+		boolean isNan = Double.isNaN(point.getY());
+		assertFalse(isNan);
+		assertEquals(oldY, point.getY(), 0.0001);
+	}
+	
+	@Test
+	void testMyPoint3() {
+		
+	}
+}
